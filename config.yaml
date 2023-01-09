@@ -1,0 +1,81 @@
+version: augmentation-10-classifier-CE
+test_version: 2022-10-18-21-Augmentation(sec=10)-Classifier-ArcFace(m=0.7,s=30,sub=1)-ToyConveyor
+description: augmentation-classifier
+time_version: False # if set ture, add time information in version
+save_version_files: True # if set true, save each version files in runs
+save_version_file_patterns:
+  - "*.py"
+  - "*.yaml"
+pass_dirs:
+  - '.'
+  - '_'
+  - 'runs'
+  - 'results'
+  - 'evaluator'
+  - 'tsne'
+
+# filepath
+train_dirs:
+  - ../../data/dataset/fan/train
+  - ../../data/dataset/pump/train
+  - ../../data/dataset/slider/train
+  - ../../data/dataset/ToyCar/train
+  - ../../data/dataset/ToyConveyor/train
+  - ../../data/dataset/valve/train
+add_dirs:
+  - ../../data/eval_dataset/fan/train
+  - ../../data/eval_dataset/pump/train
+  - ../../data/eval_dataset/slider/train
+  - ../../data/eval_dataset/ToyCar/train
+  - ../../data/eval_dataset/ToyConveyor/train
+  - ../../data/eval_dataset/valve/train
+valid_dirs:
+  - ../../data/dataset/fan/test
+  - ../../data/dataset/pump/test
+  - ../../data/dataset/slider/test
+  - ../../data/dataset/ToyCar/test
+  - ../../data/dataset/ToyConveyor/test
+  - ../../data/dataset/valve/test
+test_dirs:
+  - ../../data/eval_dataset/fan/test
+  - ../../data/eval_dataset/pump/test
+  - ../../data/eval_dataset/slider/test
+  - ../../data/eval_dataset/ToyCar/test
+  - ../../data/eval_dataset/ToyConveyor/test
+  - ../../data/eval_dataset/valve/test
+
+# audio preprocess
+sr: 16000
+n_fft: 1024
+n_mels: 128
+win_length: 1024
+hop_length: 512
+power: 2.0
+frames: 5
+
+# network
+idnn: False
+vae: False
+# train
+random_seed: 526
+epochs: 300
+batch_size: 128 # 48
+num_workers: 16
+lr: 1e-3
+num_classes: 10
+device_ids:
+  - 4
+valid_every_epochs: 5
+early_stop_epochs: -1
+start_scheduler_epoch: 20
+start_valid_epoch: 0
+start_save_model_epochs: 300
+save_model_interval_epochs: 1
+
+# metric
+pool_type: mean
+decay: 0.99
+max_fpr: 0.1
+
+# test
+load_epoch: False # it will test your model if set a value, e.g. best, 10, 100
