@@ -1,5 +1,5 @@
 # AE-ASD
-Autoencoder(AE) based methods for anomalous sound detection(ASD) 
+Autoencoder (AE) based methods for anomalous sound detection (ASD). 
 
 AE: [[DCASE2020 Task2 baseline]](https://dcase.community/challenge2020/task-unsupervised-detection-of-anomalous-sounds)
 

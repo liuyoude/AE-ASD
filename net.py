@@ -1,6 +1,3 @@
-"""
-modification made on the basis of link:https://github.com/Xiaoccer/MobileFaceNet_Pytorch
-"""
 import numpy as np
 from torch import nn
 import torch
